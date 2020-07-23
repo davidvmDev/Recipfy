@@ -14,3 +14,11 @@ y no saben cómo sacarle el mayor provecho.
 El proyecto Recipfy va a desarrollarse porque resuelve una problemática común en muchos hogares y familia, de tal manera que brinda valor a una gran población, en la que incluso 
 nos encontramos nosotros. Además de esto la motivación del proyecto también va de la mano de la experiencia que como desarrolladores podemos adquirir para mejorar nuestras habilidades
 en desarrollo web.
+
+## Estado del Arte
+ ![img](https://i.imgur.com/CBzhUXZ.jpg) 
+ ![img](https://i.imgur.com/eNz95PL.jpg) 
+
+En este momento estos dos ejemplos son perfectos para saber el estado del arte, en primer lugar canal cocina y después coockpad donde las dos ofrecen diferentes recetas,
+sin embargo no se puede agregar los ingredientes.} y son solo aplicaciones móviles.
+
