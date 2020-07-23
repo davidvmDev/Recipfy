@@ -1,3 +1,5 @@
+# Recipfy
+## Por: David Vieira y David Velásquez
 
 ## Introducción:
 Este es un proyecto de la materia Desarrollo Web Avanzado, que consiste en llevar a cabo una aplicación que entregue valor agregado mediante la solución de un problema de vida real. En nuestro caso, la aplicación se llama Recipfy, y básicamente será una aplicación orientada a la alimentación y elaboración de alimentos, resolviendo una problemática que se genera en este aspecto.
@@ -33,3 +35,9 @@ Recibir a partir de los ingredientes que ingrese el usuario recetas para recomen
 ## Descripción de la aplicación:
 Para el funcionamiento de la aplicación es necesario el uso de una base de datos, la cual debe almacenar datos como información de usuario (nombre, correo electrónico, contraseña),
 ingredientes y recetas. En cuanto al consumo de servicios externos, no se puede definir aun específicamente que servicios puede llegar a consumir la aplicación.
+
+## Bibliografía 
+
+https://wwwhatsnew.com/2017/08/06/aprende-a-cocinar-recetas-de-comida-con-estas-3-aplicaciones-para-ios-y-android/
+https://blog.mundo-r.com/es/mobil/apps-de-cocina-movil
+
