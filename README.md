@@ -1,3 +1,4 @@
+
 ## Introducción:
 Este es un proyecto de la materia Desarrollo Web Avanzado, que consiste en llevar a cabo una aplicación que entregue valor agregado mediante la solución de un problema de vida real. En nuestro caso, la aplicación se llama Recipfy, y básicamente será una aplicación orientada a la alimentación y elaboración de alimentos, resolviendo una problemática que se genera en este aspecto.
 
@@ -22,3 +23,6 @@ en desarrollo web.
 En este momento estos dos ejemplos son perfectos para saber el estado del arte, en primer lugar canal cocina y después coockpad donde las dos ofrecen diferentes recetas,
 sin embargo no se puede agregar los ingredientes.} y son solo aplicaciones móviles.
 
+## Objetivo General:
+El objetivo general de Recipfy es brindar la utilidad a las personas de poder ampliar las opciones de alimentación que usualmente emplean en la cocina, de tal manera que
+personas con poco conocimiento o nulo en para cocinar puedan llevar una alimentación variada.
