@@ -6,6 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   navBar: {
@@ -17,6 +18,10 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
+  nav__link: {
+      textDecoration: "none",
+      color: "white",
+  }
 }));
 
 const Navbar = () => {
@@ -36,9 +41,13 @@ const Navbar = () => {
           Recipfy
         </Typography>
         <div>
-          <Button color="inherit">Login</Button>
+          <Link to="/" className={classes.nav__link}>
+            <Button color="inherit">Login</Button>
+          </Link>
           <span> | </span>
-          <Button color="inherit">Signup</Button>
+          <Link to="/signup" className={classes.nav__link}>
+            <Button color="inherit">Signup</Button>
+          </Link>
         </div>
       </Toolbar>
     </AppBar>
