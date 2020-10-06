@@ -8,6 +8,9 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
   },
+  login__title: {
+      fontSize: "2rem"
+  },
   login__card: {
     padding: "20px",
     width: "400px",
@@ -49,7 +52,7 @@ const Login = () => {
   const classes = useStyles();
   return (
     <Card className={classes.login__card} boxShadow={0}>
-      <h2>Login</h2>
+      <h2 className={classes.login__title}>Login</h2>
       <form autoComplete="off" className={classes.login__form}>
         <TextField
           className={classes.form__input}
