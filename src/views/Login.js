@@ -69,7 +69,6 @@ const Login = () => {
         <Button
           className={classes.form__button}
           variant="contained"
-          color="#006159"
           type="submit"
         >
           Login

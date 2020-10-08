@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { auth } from "../services/firebase";
 import { useHistory } from "react-router-dom";
 import { connect } from "react-redux";
+import rules from "../libs/rules";
 
 const useStyles = makeStyles((theme) => ({
   login: {
@@ -56,6 +57,8 @@ const Signup = (props) => {
 
   let history = useHistory();
 
+  const [name, setName] = useState("");
+  const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -70,27 +73,36 @@ const Signup = (props) => {
       props.logUser();
       history.replace("/protected");
     } catch (err) {
-      throw new Error(err.message);
+      console.log(err);
     }
   };
 
   return (
-    <Card className={classes.login__card} boxShadow={0}>
+    <Card className={classes.login__card}>
       <h2 className={classes.login__title}>Signup</h2>
-      <form autoComplete="off" className={classes.login__form}>
+      <form
+        autoComplete="off"
+        className={classes.login__form}
+        onSubmit={signUser}
+      >
         <TextField
           className={classes.form__input}
           label="Name"
           variant="outlined"
           type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
         />
         <TextField
           className={classes.form__input}
           label="Lastname"
           variant="outlined"
           type="text"
+          value={lastname}
+          onChange={(e) => setLastname(e.target.value)}
         />
         <TextField
+          onInvalid={(e) => e.preventDefault()}
           className={classes.form__input}
           label="Email"
           variant="outlined"
@@ -109,9 +121,7 @@ const Signup = (props) => {
         <Button
           className={classes.form__button}
           variant="contained"
-          color="#006159"
           type="submit"
-          onClick={signUser}
         >
           Signup
         </Button>
