@@ -68,7 +68,7 @@ const Login = (props) => {
         return;
       }
       props.logUser();
-      history.replace("/protected");
+      history.replace("/search");
     } catch (err) {
       console.log(err);
     }
