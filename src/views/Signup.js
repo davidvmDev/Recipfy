@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { auth } from "../services/firebase";
 import { useHistory } from "react-router-dom";
 import { connect } from "react-redux";
-import rules from "../libs/rules";
+
 
 const useStyles = makeStyles((theme) => ({
   login: {

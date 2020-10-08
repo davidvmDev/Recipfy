@@ -1,6 +1,9 @@
 import { Button, Card, TextField } from "@material-ui/core";
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import { auth } from "../services/firebase";
+import { useHistory } from "react-router-dom";
+import { connect } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
   login: {
@@ -9,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
   },
   login__title: {
-      fontSize: "2rem"
+    fontSize: "2rem",
   },
   login__card: {
     padding: "20px",
@@ -48,23 +51,51 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Login = () => {
+const Login = (props) => {
   const classes = useStyles();
+
+  let history = useHistory();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const loginUser = async (event) => {
+    event.preventDefault();
+
+    try {
+      const user = await auth.signInWithEmailAndPassword(email, password);
+      if (!user || !user.user) {
+        return;
+      }
+      props.logUser();
+      history.replace("/protected");
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
-    <Card className={classes.login__card} boxShadow={0}>
+    <Card className={classes.login__card}>
       <h2 className={classes.login__title}>Login</h2>
-      <form autoComplete="off" className={classes.login__form}>
+      <form
+        autoComplete="off"
+        className={classes.login__form}
+        onSubmit={loginUser}
+      >
         <TextField
           className={classes.form__input}
           label="Email"
           variant="outlined"
           type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <TextField
           className={classes.form__input}
           label="Password"
           variant="outlined"
           type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <Button
           className={classes.form__button}
@@ -78,4 +109,18 @@ const Login = () => {
   );
 };
 
-export default Login;
+const mapStateToProps = (state) => {
+  return {
+    isLogged: state.isLogged,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    logUser: () => {
+      dispatch({ type: "LOG_USER", logState: true });
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
