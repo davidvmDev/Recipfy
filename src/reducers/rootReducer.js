@@ -1,5 +1,8 @@
+import recipesService from "../services/recipesService";
+
 const initState = {
   isLogged: false,
+  recipes: [],
 };
 
 const rootReducer = (state = initState, action) => {
@@ -14,6 +17,13 @@ const rootReducer = (state = initState, action) => {
     return {
       ...state,
       isLogged: action.logState,
+    };
+  }
+
+  if (action.type === "FETCH_RECIPES") {
+    return {
+      ...state,
+      recipes: action.recipes,
     };
   }
 

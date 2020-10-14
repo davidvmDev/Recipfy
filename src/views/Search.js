@@ -3,6 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import ChipInput from "material-ui-chip-input";
 import { Button } from "@material-ui/core";
+import { connect } from "react-redux";
+import recipesService from "../services/recipesService";
 
 const useStyles = makeStyles((theme) => ({
   search: {
@@ -26,11 +28,11 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#00575A",
     color: "white",
     margin: "0 auto",
-    marginTop: "50px"
+    marginTop: "50px",
   },
 }));
 
-const Search = () => {
+const Search = (props) => {
   const classes = useStyles();
   const [ingredients, setIngredients] = useState([]);
 
@@ -61,7 +63,8 @@ const Search = () => {
           <Button
             className={classes.search__button}
             variant="contained"
-            type="submit"
+            type="button"
+            onClick={() => props.fetchRecipes(ingredients)}
           >
             Search
           </Button>
@@ -71,4 +74,23 @@ const Search = () => {
   );
 };
 
-export default Search;
+const mapStateToProps = (state) => {
+  return {
+    recipes: state.recipes,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchRecipes: async (ingredients) => {
+      let recipes = await recipesService.getRecipesByIngredients(ingredients);
+      console.log(recipes);
+      dispatch({
+        type: "FETCH_RECIPES",
+        recipes: recipes,
+      });
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Search);
