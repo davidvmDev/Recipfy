@@ -5,6 +5,7 @@ import ChipInput from "material-ui-chip-input";
 import { Button } from "@material-ui/core";
 import { connect } from "react-redux";
 import recipesService from "../services/recipesService";
+import RecipeCard from "../components/RecipeCard";
 
 const useStyles = makeStyles((theme) => ({
   search: {
@@ -29,6 +30,12 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
     margin: "0 auto",
     marginTop: "50px",
+  },
+  search_resultsContainer: {
+    marginTop: "50px !important",
+  },
+  recipeCont: {
+    display: "flex",
   },
 }));
 
@@ -69,6 +76,19 @@ const Search = (props) => {
             Search
           </Button>
         </Grid>
+
+        <Grid className={classes.search_resultsContainer} container spacing={1}>
+          <Grid item container xs={12} spacing={3} justify="space-evenly">
+            {props.recipes.map((recipe) => (
+              <Grid key={recipe.id} item xs={4}>
+                <RecipeCard
+                  recipeName={recipe.title}
+                  recipeImage={recipe.image}
+                />
+              </Grid>
+            ))}
+          </Grid>
+        </Grid>
       </Grid>
     </div>
   );
@@ -84,7 +104,6 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchRecipes: async (ingredients) => {
       let recipes = await recipesService.getRecipesByIngredients(ingredients);
-      console.log(recipes);
       dispatch({
         type: "FETCH_RECIPES",
         recipes: recipes,

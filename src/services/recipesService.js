@@ -1,5 +1,5 @@
 import axios from "axios";
-const appKey = "4fa289871b984cb687cde0629bb24728";
+const appKey = "50365c74e6ac48a6bd35c6c3366aa451";
 const recipes = {};
 
 recipes.getRecipesByIngredients = async (ingredients) => {
