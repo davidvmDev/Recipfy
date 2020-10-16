@@ -52,20 +52,22 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Recipe = () => {
-
-  let {id} = useParams();
+  let { id } = useParams();
   const [recipeInfo, setRecipeInfo] = useState({});
   const [recipeIngredients, setRecipeIngredients] = useState([]);
+  const [recipeSteps, setRecipeSteps] = useState([]);
 
   const getRecipeInfo = async () => {
     let fetchedRecipe = await recipesService.getRecipeById(id);
-    setRecipeInfo({...fetchedRecipe});
-    setRecipeIngredients([...fetchedRecipe.extendedIngredients])
-  }
+    let fetchedSteps = await recipesService.getRecipeSteps(id);
+    setRecipeInfo({ ...fetchedRecipe });
+    setRecipeIngredients([...fetchedRecipe.extendedIngredients]);
+    setRecipeSteps([...fetchedSteps[0].steps]);
+  };
 
   useEffect(() => {
     getRecipeInfo();
-  }, [])
+  }, []);
 
   const classes = useStyles();
   return (
@@ -150,11 +152,9 @@ const Recipe = () => {
             direction="column"
           >
             <List>
-              {
-                recipeIngredients.map(ingredient => (
-                  <RecipeListItem ingredientDetail={ingredient.original} />
-                ))
-              }
+              {recipeIngredients.map((ingredient) => (
+                <RecipeListItem ingredientDetail={ingredient.original} />
+              ))}
             </List>
           </Grid>
 
@@ -169,7 +169,11 @@ const Recipe = () => {
             direction="column"
           >
             <List>
-              <RecipeListItem />
+              {
+                recipeSteps.map((step) => (
+                  <RecipeListItem recipeStep={step.step} />
+                ))
+              }
             </List>
           </Grid>
         </Grid>

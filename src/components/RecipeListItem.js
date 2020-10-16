@@ -1,4 +1,9 @@
-import { Checkbox, ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
+import {
+  Checkbox,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+} from "@material-ui/core";
 import React from "react";
 
 const RecipeListItem = (props) => {
@@ -7,7 +12,11 @@ const RecipeListItem = (props) => {
       <ListItemIcon>
         <Checkbox edge="start" disableRipple />
       </ListItemIcon>
-      <ListItemText primary={`${props.ingredientDetail}`} />
+      {!props.ingredientDetail ? (
+        <ListItemText primary={`${props.recipeStep}`} />
+      ) : (
+        <ListItemText primary={`${props.ingredientDetail}`} />
+      )}
     </ListItem>
   );
 };

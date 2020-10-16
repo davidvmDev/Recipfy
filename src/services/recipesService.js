@@ -30,7 +30,6 @@ recipes.getRecipesByIngredients = async (ingredients) => {
 
 //Obtencion de la info de la receta mediante id, includeNutrition en false
 recipes.getRecipeById = async (recipeId) => {
-
   try {
     const request = {
       method: "GET",
@@ -39,6 +38,26 @@ recipes.getRecipeById = async (recipeId) => {
         includeNutrition: false,
       },
       url: `https://api.spoonacular.com/recipes/${recipeId}/information`,
+    };
+
+    const response = await axios(request);
+    return response.data;
+  } catch (err) {
+    const message = err.response;
+    if (!message) throw new Error(err.message);
+    else throw new Error(message.data.error);
+  }
+};
+
+recipes.getRecipeSteps = async (recipeId) => {
+  try {
+    const request = {
+      method: "GET",
+      params: {
+        apiKey: appKey,
+        stepBreakDown: false,
+      },
+      url: `https://api.spoonacular.com/recipes/${recipeId}/analyzedInstructions`,
     };
 
     const response = await axios(request);
