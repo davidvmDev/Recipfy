@@ -19,9 +19,10 @@ const useStyles = makeStyles((theme) => ({
     margin: "0 auto",
   },
   infoArea__media: {
-    height: 340,
+    height: 595,
     position: "relative",
     padding: "20px",
+    backgroundSize: "contain"
   },
   media__title: {
     position: "absolute",
