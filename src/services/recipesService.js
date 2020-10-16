@@ -30,7 +30,6 @@ recipes.getRecipesByIngredients = async (ingredients) => {
 
 //Obtencion de la info de la receta mediante id, includeNutrition en false
 recipes.getRecipeById = async (recipeId) => {
-  let ingredientQuery = "";
 
   try {
     const request = {

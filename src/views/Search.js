@@ -82,6 +82,7 @@ const Search = (props) => {
             {props.recipes.map((recipe) => (
               <Grid key={recipe.id} item xs={4}>
                 <RecipeCard
+                  id={recipe.id}
                   recipeName={recipe.title}
                   recipeImage={recipe.image}
                 />

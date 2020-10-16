@@ -1,13 +1,13 @@
 import { Checkbox, ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
 import React from "react";
 
-const RecipeListItem = () => {
+const RecipeListItem = (props) => {
   return (
     <ListItem>
       <ListItemIcon>
         <Checkbox edge="start" disableRipple />
       </ListItemIcon>
-      <ListItemText primary="Ingredient" />
+      <ListItemText primary={`${props.ingredientDetail}`} />
     </ListItem>
   );
 };

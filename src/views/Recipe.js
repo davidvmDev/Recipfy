@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
@@ -7,14 +7,10 @@ import Typography from "@material-ui/core/Typography";
 import AccessAlarmIcon from "@material-ui/icons/AccessAlarm";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import FavoriteIcon from "@material-ui/icons/Favorite";
-import {
-  Checkbox,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-} from "@material-ui/core";
+import { List } from "@material-ui/core";
 import RecipeListItem from "../components/RecipeListItem";
+import { useParams } from "react-router-dom";
+import recipesService from "../services/recipesService";
 
 const useStyles = makeStyles((theme) => ({
   recipe: {
@@ -30,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   media__title: {
     position: "absolute",
     bottom: 0,
-    color: "black",
+    color: "white",
     fontSize: "40px",
     fontWeight: "600",
   },
@@ -48,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
   },
   recipe__content: {
     padding: "20px",
-    gap: "30px"
+    gap: "30px",
   },
   recipe__contentContainer: {
     borderBottom: "0.2px solid lightgrey",
@@ -56,6 +52,21 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Recipe = () => {
+
+  let {id} = useParams();
+  const [recipeInfo, setRecipeInfo] = useState({});
+  const [recipeIngredients, setRecipeIngredients] = useState([]);
+
+  const getRecipeInfo = async () => {
+    let fetchedRecipe = await recipesService.getRecipeById(id);
+    setRecipeInfo({...fetchedRecipe});
+    setRecipeIngredients([...fetchedRecipe.extendedIngredients])
+  }
+
+  useEffect(() => {
+    getRecipeInfo();
+  }, [])
+
   const classes = useStyles();
   return (
     <div className={classes.recipe}>
@@ -64,7 +75,7 @@ const Recipe = () => {
           <Card>
             <CardMedia
               className={classes.infoArea__media}
-              image={require("../assets/logo.png")}
+              image={recipeInfo.image}
             >
               <Typography
                 className={classes.media__title}
@@ -72,7 +83,7 @@ const Recipe = () => {
                 variant="h5"
                 component="h2"
               >
-                Nombre receta
+                {recipeInfo.title}
               </Typography>
             </CardMedia>
           </Card>
@@ -89,7 +100,7 @@ const Recipe = () => {
           >
             <AccessAlarmIcon color="disabled" fontSize="large" />
             <Typography variant="h6" component="h2">
-              10 Minute
+              {`${recipeInfo.readyInMinutes} Minutes`}
             </Typography>
           </Grid>
           <Grid
@@ -103,7 +114,7 @@ const Recipe = () => {
           >
             <AccountCircleIcon color="disabled" fontSize="large" />
             <Typography variant="h6" component="h2">
-              Autor
+              {recipeInfo.sourceName}
             </Typography>
           </Grid>
           <Grid
@@ -117,7 +128,7 @@ const Recipe = () => {
           >
             <FavoriteIcon color="disabled" fontSize="large" />
             <Typography variant="h6" component="h2">
-              123123
+              {recipeInfo.aggregateLikes}
             </Typography>
           </Grid>
         </Grid>
@@ -139,7 +150,11 @@ const Recipe = () => {
             direction="column"
           >
             <List>
-              <RecipeListItem />
+              {
+                recipeIngredients.map(ingredient => (
+                  <RecipeListItem ingredientDetail={ingredient.original} />
+                ))
+              }
             </List>
           </Grid>
 

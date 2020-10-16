@@ -15,7 +15,7 @@ function App() {
         <Route exact path="/" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route path="/search" component={Search} />
-        <Route path="/recipe" component={Recipe} />
+        <Route path="/recipe/:id" component={Recipe} />
       </div>
     </BrowserRouter>
   );

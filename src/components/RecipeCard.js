@@ -7,29 +7,32 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles({
   recipeCard: {
     maxWidth: 345,
     margin: "auto",
     height: "100%",
-    position: 'relative',
+    position: "relative",
   },
   recipeCard__infoArea: {
-    marginBottom: '30px',
+    marginBottom: "30px",
   },
   infoArea__media: {
     height: 140,
   },
   recipeCard__actions: {
-    position: 'absolute',
+    position: "absolute",
     bottom: 0,
-  }
-
+  },
 });
 
 const RecipeCard = (props) => {
   const classes = useStyles();
+  let history = useHistory();
+
+  const showRecipeDetails = () => history.push(`/recipe/${props.id}`);
 
   return (
     <Card className={classes.recipeCard}>
@@ -45,7 +48,7 @@ const RecipeCard = (props) => {
         </CardContent>
       </CardActionArea>
       <CardActions className={classes.recipeCard__actions}>
-        <Button size="small" color="primary">
+        <Button size="small" color="primary" onClick={showRecipeDetails}>
           Details
         </Button>
       </CardActions>
