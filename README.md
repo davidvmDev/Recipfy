@@ -1,68 +1,51 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Recipfy
 
-## Available Scripts
+## Por: David Vieira y David Velásquez
 
-In the project directory, you can run:
+## Introducción:
 
-### `npm start`
+Este es un proyecto de la materia Desarrollo Web Avanzado, que consiste en llevar a cabo una aplicación que entregue valor agregado mediante la solución de un problema de vida real. En nuestro caso, la aplicación se llama Recipfy, y básicamente será una aplicación orientada a la alimentación y elaboración de alimentos, resolviendo una problemática que se genera en este aspecto.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Tema
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Recetas de cocina creativas y nutritivas con ingredientes a la mano.
+La idea principal de la aplicación es general recetas a partir de ingredientes ingresados por el usuario, donde le recomiende opciones ricas y nutritivas.
 
-### `npm test`
+## Planteamiento del Proeblema
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+En muchas ocasiones nos hemos visto envuelto en la situación de que, a pesar de tener ingredientes en la despensa de la cocina, no sabemos que cocinar o no sabemos cómo combinar
+todos estos ingredientes en un plato que nos aporte nutricionalmente y además sepa rico. Adicionalmente muchas Familias dada la actual situación no cuentan con muchos ingredientes
+y no saben cómo sacarle el mayor provecho.
 
-### `npm run build`
+## Justificación:
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+El proyecto Recipfy va a desarrollarse porque resuelve una problemática común en muchos hogares y familia, de tal manera que brinda valor a una gran población, en la que incluso
+nos encontramos nosotros. Además de esto la motivación del proyecto también va de la mano de la experiencia que como desarrolladores podemos adquirir para mejorar nuestras habilidades
+en desarrollo web.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Estado del Arte
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![img](https://i.imgur.com/CBzhUXZ.jpg)
+![img](https://i.imgur.com/eNz95PL.jpg)
 
-### `npm run eject`
+En este momento estos dos ejemplos son perfectos para saber el estado del arte, en primer lugar canal cocina y después coockpad donde las dos ofrecen diferentes recetas,
+sin embargo no se puede agregar los ingredientes.} y son solo aplicaciones móviles.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Objetivo General:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+El objetivo general de Recipfy es brindar la utilidad a las personas de poder ampliar las opciones de alimentación que usualmente emplean en la cocina, de tal manera que
+personas con poco conocimiento o nulo en para cocinar puedan llevar una alimentación variada.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Objetivos específicos
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Recibir a partir de los ingredientes que ingrese el usuario recetas para recomendar, tener sistema de login y registro de usuario. Interfaz fácil de usar y amigable. Navegabilidad. imágenes y pasos de recetas.
 
-## Learn More
+## Descripción de la aplicación:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Para el funcionamiento de la aplicación es necesario el uso de una base de datos, la cual debe almacenar datos como información de usuario (nombre, correo electrónico, contraseña),
+ingredientes y recetas. En cuanto al consumo de servicios externos, no se puede definir aun específicamente que servicios puede llegar a consumir la aplicación.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Bibliografía
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+https://wwwhatsnew.com/2017/08/06/aprende-a-cocinar-recetas-de-comida-con-estas-3-aplicaciones-para-ios-y-android/
+https://blog.mundo-r.com/es/mobil/apps-de-cocina-movil
