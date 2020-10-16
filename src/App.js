@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Login from "./views/Login";
 import Signup from "./views/Signup";
 import Search from "./views/Search";
+import Recipe from "./views/Recipe";
 import { BrowserRouter, Route } from "react-router-dom";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route exact path="/" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route path="/search" component={Search} />
+        <Route path="/recipe" component={Recipe} />
       </div>
     </BrowserRouter>
   );
