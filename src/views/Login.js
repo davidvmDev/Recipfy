@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
   login: {
-    height: "60vh",
+    height: "80vh",
     display: "flex",
     justifyContent: "center",
   },

@@ -41,6 +41,10 @@ const RecipeCard = (props) => {
           className={classes.infoArea__media}
           image={props.recipeImage}
         />
+         <CardMedia
+          className={classes.infoArea__media}
+          image={props.recipeImage}
+        />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             {props.recipeName}
