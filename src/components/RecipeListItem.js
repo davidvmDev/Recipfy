@@ -11,6 +11,7 @@ const RecipeListItem = (props) => {
     <ListItem>
       <ListItemIcon>
         <Checkbox edge="start" disableRipple />
+        <Checkbox edge="start" disableRipple />
       </ListItemIcon>
       {!props.ingredientDetail ? (
         <ListItemText primary={`${props.recipeStep}`} />
